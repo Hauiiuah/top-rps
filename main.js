@@ -1,9 +1,10 @@
 
-const selections=['rock','paper','scissors']
+
 
 const computerPlay =() => {
+    const SELECTIONS=['rock','paper','scissors']
     const computerSelection = Math.floor(Math.random()*3)
-    return selections[computerSelection]
+    return SELECTIONS[computerSelection]
 
 }
 
@@ -32,6 +33,11 @@ const playerPlay=()=> {
 }
 
 
+
+const evaluateWinner = (score) => {
+    return score < 0 ? 'Computer wins' : score > 0 ? 'Player wins' : 'Draw'
+}
+
 const game=() =>{
     let score=0
     for(let i=0;i<5;i++)
@@ -41,18 +47,8 @@ const game=() =>{
         score += playRound(computerSelection,playerSelection)
     }
 
-    if(score<0)
-    {
-        console.log('Computer wins!')
-    
-    }
-    else if(score>0){
-        console.log('Player wins!')
-    }
-    else{
-        console.log('Draw!')
-    }
-    
+    console.log(evaluateWinner(score))
+ 
 }
 
 game()
