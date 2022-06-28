@@ -52,7 +52,8 @@ const printResult = (result) => {
         result.winner==='Player' ? message.classList.add('win') : message.classList.add('loose')
 
     }
-    resultContainer.appendChild(message)
+    const first = resultContainer.firstElementChild
+    resultContainer.insertBefore(message,first) 
 }
 
 const updateScore= (result) => {
